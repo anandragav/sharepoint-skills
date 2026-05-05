@@ -4,7 +4,7 @@
     "source": "pnp",
     "title": "Site Storage Heatmap",
     "shortDescription": "Generates an interactive HTML site map showing storage breakdown and hot/cold activity heatmap across all document libraries, lists, and site pages on a SharePoint site.",
-    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/site-storage-heatmap",
+    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/operations/site-storage-heatmap",
     "longDescription": [
       "Generates an interactive HTML site map showing storage breakdown and hot/cold activity heatmap across all document libraries, lists, and site pages on a SharePoint site.",
       "Includes a site-wide summary with stacked horizontal bars showing hot/warm/cool/cold activity tiers, and per-library click-through drill-downs with file count, total size, file type breakdown, and activity heatmap. Saves the file as {FirstName}-Site-Storage-Heatmap.html and navigates the user directly to it."
@@ -29,7 +29,7 @@
       {
         "type": "image",
         "order": 100,
-        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/site-storage-heatmap/assets/preview.png",
+        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/operations/site-storage-heatmap/assets/preview.png",
         "alt": "Site Storage Heatmap skill in action"
       }
     ],

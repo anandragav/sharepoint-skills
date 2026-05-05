@@ -4,7 +4,7 @@
     "source": "pnp",
     "title": "Organize Library",
     "shortDescription": "Fully organizes a SharePoint document library end-to-end: classifies files, applies brand-consistent column formatting, creates filtered views per content type, colors folders, and sets up notification rules for overdue items.",
-    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/organize-library",
+    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/libraries/organize-library",
     "longDescription": [
       "Fully organizes a SharePoint document library end-to-end by orchestrating the file-classifier skill and reading SHAREPOINT.md for brand colors.",
       "Applies color-coded classification pills, data bars on financial columns, and overdue highlighting on date columns. Creates a default view grouped by content type with styled headers, per-content-type views in the view picker, folder colors, and automated notification rules that alert a reviewer when any document is flagged Overdue."
@@ -29,7 +29,7 @@
       {
         "type": "image",
         "order": 100,
-        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/organize-library/assets/preview.png",
+        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/libraries/organize-library/assets/preview.png",
         "alt": "Organize Library skill in action"
       }
     ],

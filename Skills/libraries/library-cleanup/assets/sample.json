@@ -4,7 +4,7 @@
     "source": "pnp",
     "title": "Library Cleanup",
     "shortDescription": "Organizes a SharePoint document library by scanning for duplicates, bad file names, empty folders, and excessive nesting. Presents a before/after comparison with an Organization Score, then executes the cleanup with a live TODO checklist.",
-    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/library-cleanup",
+    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/libraries/library-cleanup",
     "longDescription": [
       "Organizes a SharePoint document library by scanning for duplicates, bad file names, empty folders, and excessive nesting. Reads file content to generate meaningful rename suggestions derived from what the file actually contains.",
       "Presents a visual before/after comparison with an Organization Score (0-100) and a grouped bar chart, then executes the full cleanup with a live TODO checklist the user can follow along with. Generates an HTML impact dashboard saved to the library on completion."
@@ -29,7 +29,7 @@
       {
         "type": "image",
         "order": 100,
-        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/library-cleanup/assets/preview.png",
+        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/libraries/library-cleanup/assets/preview.png",
         "alt": "Library Cleanup skill in action"
       }
     ],

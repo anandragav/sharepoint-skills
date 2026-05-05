@@ -4,7 +4,7 @@
     "source": "pnp",
     "title": "File Classifier",
     "shortDescription": "Classifies files in a SharePoint document library by reading their content and matching them to known content types (Contracts, Invoices, Purchase Orders). Creates metadata columns and extracts values automatically.",
-    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/file-classifier",
+    "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/libraries/file-classifier",
     "longDescription": [
       "Classifies files in a SharePoint document library by reading their content and matching them to known content types: Contracts, Invoices, and Purchase Orders. Classify by document purpose and structure — not keywords alone.",
       "Creates the appropriate metadata columns for each content type (identifier, key party, critical date, financial amount, status), extracts values from each file, and saves them automatically. Also creates a File classification Choice column with a metadata extraction prompt for future autofill."
@@ -29,7 +29,7 @@
       {
         "type": "image",
         "order": 100,
-        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/file-classifier/assets/preview.png",
+        "url": "https://github.com/pnp/sharepoint-skills/raw/main/Skills/libraries/file-classifier/assets/preview.png",
         "alt": "File Classifier skill in action"
       }
     ],

@@ -11,7 +11,7 @@ Classifies files in a SharePoint document library by reading their content and m
 
 ## Demo content
 
-Sample files for trying this skill end-to-end are in [file-classifier-demo/](../file-classifier-demo/). Includes a mix of contracts, invoices, and purchase orders to upload to a library before running the skill.
+Sample files for trying this skill end-to-end are in the [demo/](./demo/) subfolder. Includes a mix of contracts, invoices, and purchase orders to upload to a library before running the skill. Skip this folder when uploading the skill to SharePoint.
 
 ## Contribution
 

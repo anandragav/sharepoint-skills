@@ -1,6 +1,6 @@
 # File Classifier — Demo Content
 
-Demo content for the [file-classifier](../file-classifier/) skill. Use these sample files to set up a working demo of the skill in SharePoint.
+Demo content for the [file-classifier](../) skill. Use these sample files to set up a working demo of the skill in SharePoint.
 
 ## What's included
 
@@ -10,7 +10,7 @@ The `sample-files/` folder contains a mix of contracts, invoices, and purchase o
 
 1. Create or open a SharePoint document library.
 2. Upload all files from `sample-files/` into the library.
-3. Install the [file-classifier](../file-classifier/) skill into your SharePoint Skills library (see the skill's README for install steps).
+3. Install the [file-classifier](../) skill into your SharePoint Skills library (see the skill's README for install steps).
 4. From a Copilot agent, ask: *"Classify the files in this library."*
 
 ## What to expect

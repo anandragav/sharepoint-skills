@@ -12,7 +12,7 @@ Organizes a SharePoint document library by scanning for duplicates, bad file nam
 
 ## Demo content
 
-Sample files for trying this skill end-to-end are in [library-cleanup-demo/](../library-cleanup-demo/). Includes an intentionally messy folder structure with bad file names, duplicates, empty folders, and excessive nesting.
+Sample files for trying this skill end-to-end are in the [demo/](./demo/) subfolder. Includes an intentionally messy folder structure with bad file names, duplicates, empty folders, and excessive nesting. Skip this folder when uploading the skill to SharePoint.
 
 ## Contribution
 

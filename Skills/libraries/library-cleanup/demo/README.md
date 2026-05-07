@@ -1,6 +1,6 @@
 # Library Cleanup — Demo Content
 
-Demo content for the [library-cleanup](../library-cleanup/) skill. Use these sample files to set up a working demo of the skill in SharePoint.
+Demo content for the [library-cleanup](../) skill. Use these sample files to set up a working demo of the skill in SharePoint.
 
 ## What's included
 
@@ -14,7 +14,7 @@ The `sample-files/` folder contains an intentionally messy library structure wit
 
 1. Create or open a SharePoint document library.
 2. Upload the entire folder structure from `sample-files/` into the library, preserving folders.
-3. Install the [library-cleanup](../library-cleanup/) skill into your SharePoint Skills library.
+3. Install the [library-cleanup](../) skill into your SharePoint Skills library.
 4. From a Copilot agent, say: *"clean up file demo"*
 
 ## What to expect

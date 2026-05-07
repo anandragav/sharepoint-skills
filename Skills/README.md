@@ -2,7 +2,7 @@
 
 AI skills are instruction files that give a Copilot agent a focused capability. Each skill lives in its own folder and is installed by uploading that folder to the **Skills** library in SharePoint.
 
-Some skills also have a sibling `<skill-name>-demo/` folder containing sample content you can use to try the skill end-to-end (e.g., [`libraries/library-cleanup-demo/`](./libraries/library-cleanup-demo/)). The skill folder itself stays clean for direct upload to SharePoint.
+Some skills also include a `demo/` subfolder containing sample content you can use to try the skill end-to-end (e.g., [`libraries/library-cleanup/demo/`](./libraries/library-cleanup/demo/)). When uploading a skill folder to SharePoint, simply skip the `demo/` subfolder — only `SKILL.md` is required for the skill to run.
 
 ---
 
@@ -50,7 +50,7 @@ A skill is a folder containing a `SKILL.md` and a `README.md`. The folder name m
 
 **Optional — demo content:**
 
-If your skill benefits from a hands-on demo, create a sibling folder named `<skill-name>-demo/` next to the skill folder. Include a `README.md` with setup steps and a `sample-files/` folder with the demo content. Keeping demo content in a separate folder ensures the skill folder stays clean for direct upload to SharePoint.
+If your skill benefits from a hands-on demo, add a `demo/` subfolder inside your skill folder. Include a `README.md` with setup steps and a `sample-files/` folder with the demo content. When users upload the skill to SharePoint, they can skip the `demo/` subfolder — only `SKILL.md` is required for the skill to run.
 
 **`SKILL.md`** — the skill instructions:
 

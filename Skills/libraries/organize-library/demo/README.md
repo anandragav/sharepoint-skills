@@ -1,6 +1,6 @@
 # Organize Library — Demo Content
 
-Demo content for the [organize-library](../organize-library/) skill. Use these sample files to set up an end-to-end demo of the skill in SharePoint.
+Demo content for the [organize-library](../) skill. Use these sample files to set up an end-to-end demo of the skill in SharePoint.
 
 ## What's included
 
@@ -11,8 +11,8 @@ The `sample-files/` folder contains a mix of contracts, invoices, and purchase o
 1. Create or open a SharePoint document library.
 2. Upload all files from `sample-files/` into the library.
 3. Install both skills into your SharePoint Skills library:
-   - [organize-library](../organize-library/) — the orchestrator
-   - [file-classifier](../file-classifier/) — used by organize-library for classification
+   - [organize-library](../) — the orchestrator
+   - [file-classifier](../../file-classifier/) — used by organize-library for classification
 4. Ensure your site has a `SHAREPOINT.md` brand reference file (organize-library reads this for colors and formatting).
 5. From a Copilot agent, ask: *"Organize this document library."*
 

@@ -4,6 +4,12 @@ AI skills are instruction files that give a Copilot agent a focused capability. 
 
 Some skills also include a `demo/` subfolder containing sample content you can use to try the skill end-to-end (e.g., [`libraries/library-cleanup/demo/`](./libraries/library-cleanup/demo/)). When uploading a skill folder to SharePoint, simply skip the `demo/` subfolder — only `SKILL.md` is required for the skill to run.
 
+## Quick links
+
+- **Browse skills:** [Libraries](#libraries) · [Operations](#operations)
+- **Install:** [Installing a Skill](#installing-a-skill)
+- **Contribute:** [Creating a Skill](#creating-a-skill) · [Categories](#categories) · [Required files](#required-files) · [File templates](#file-templates) · [✅ Pre-submission checklist](#pre-submission-checklist)
+
 ---
 
 ## Libraries

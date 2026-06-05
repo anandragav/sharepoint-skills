@@ -1,6 +1,6 @@
 # Library Cleanup
 
-Organizes a SharePoint document library by scanning for duplicates, bad file names, empty folders, and excessive nesting. Reads file content to generate meaningful rename suggestions, presents a visual before/after comparison with an Organization Score, then executes the full cleanup with a live TODO checklist.
+Organizes a SharePoint document library by (a) assessing the current state and what is wrong; (b) recommends an improved information architecture; (c) implements the new structure with user input with a live TODO checklist and (d) creates an impact report. 
 
 ![preview](./assets/preview.png)
 

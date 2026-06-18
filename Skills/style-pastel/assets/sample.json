@@ -42,6 +42,11 @@
     ],
     "references": [
       {
+        "name": "agentskills.io specification",
+        "description": "The specification that SharePoint AI skills follow for installation and discovery.",
+        "url": "https://agentskills.io/specification"
+      },
+      {
         "name": "List Styling Engine",
         "description": "The companion skill that applies these style tokens to a SharePoint list.",
         "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/list-styling"

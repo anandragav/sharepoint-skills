@@ -23,12 +23,7 @@ A curated library of AI skills for the latest AI features in Microsoft 365 Share
 
 ## Contributing
 
-Contributions and corrections are welcome!
-
-1. Fork the repo and create a branch: `git checkout -b skill/your-skill-name`
-1. Add your skill folder under `Skills/<skill-name>/` and put runtime skill files in `Skills/<skill-name>/<skill-name>/` (upload-ready package)
-1. Follow the full contribution standards in [Skills/README.md](./Skills/README.md#creating-a-skill) — covers required files, naming conventions, category guidance, file templates (including `sample.json`), and a pre-submission checklist
-1. Open a pull request with a short description of what the skill does
+Contributions and corrections are welcome! See the **[Contribution guide](./CONTRIBUTING.md)** for the full process — skill folder structure, naming conventions, required files, file templates (including `sample.json`), and the pre-submission checklist.
 
 All contributors on this repository will be acknowledged with special [SharePoint Skills Credly badge](https://www.credly.com/org/m365pnp/badge/sharepoint-skills-microsoft-365-power-platform-comm).
 

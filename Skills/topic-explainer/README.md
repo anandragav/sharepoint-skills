@@ -1,13 +1,13 @@
 # Topic Explainer
 
-Creates a polished, interactive explainer dashboard for any business, technical, or strategic topic. Uses a consistent, professional Business Sweden-style structure featuring concept cards, comparisons, decision guides, use cases, governance notes, and source attribution. Outputs a fully self-contained HTML dashboard ready for SharePoint pages, sharing, or embedding.
+Creates a polished, interactive explainer dashboard for any business, technical, or strategic topic. Uses a clean professional card-based structure featuring concept cards, comparisons, decision guides, use cases, governance notes, and source attribution. Outputs a fully self-contained HTML dashboard ready for SharePoint pages, sharing, or embedding.
 
 ![preview](./assets/preview.png)
 
 ## What you get
 
 - A modern, card-based interactive HTML dashboard tailored to the requested topic
-- Professional Business Sweden tone with clear analogies, plain-language definitions, practical examples, and watch-outs
+- Professional tone with clear analogies, plain-language definitions, practical examples, and watch-outs
 - Adaptive layout that only includes the most relevant sections for the topic (hero + shortest version, core concept cards, active detail panel, comparison tables, decision guides, use cases, governance notes, source notes)
 - Fully standalone HTML/CSS/JavaScript — no external dependencies or build step required
 - Searchable/filterable use cases (when applicable)
@@ -18,7 +18,7 @@ Creates a polished, interactive explainer dashboard for any business, technical,
 
 | Solution | Author(s) |
 | --- | --- |
-| explainer | Anand &#124; [GitHub](https://github.com/anandVragav) &#124; [LinkedIn](https://www.linkedin.com/in/anand-vijayaragavan-89443012) |
+| topic-explainer | Anand &#124; [GitHub](https://github.com/anandVragav) &#124; [LinkedIn](https://www.linkedin.com/in/anand-vijayaragavan-89443012/) |
 
 ## Version history
 

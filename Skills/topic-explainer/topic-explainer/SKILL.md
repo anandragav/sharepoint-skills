@@ -1,7 +1,7 @@
 ---
-name: explainer
+name: topic-explainer
 description: |-
-  Create an adaptive interactive explainer dashboard for a user-specified topic, using a clear Business Sweden-style structure with concept cards, comparisons, topic-fit sections, optional decision guides, use cases, governance notes, and source notes.
+  Create an adaptive interactive explainer dashboard for a user-specified topic, using a clean professional card-based structure with concept cards, comparisons, topic-fit sections, optional decision guides, use cases, governance notes, and source notes.
 
   Use when the user says:
     - "create an explainer of a topic"
@@ -9,13 +9,14 @@ description: |-
     - "make an explainer about <topic>"
     - "turn this topic into an explainer"
     - "build a dashboard that explains <topic>"
+    - "create a topic explainer"
 ---
-# Explainer
+# Topic Explainer
 
 ## When to use
 Use this skill whenever the user asks to create an explainer, explainer page, or explainer dashboard for a topic. The output should be a polished, interactive HTML dashboard that explains the topic clearly for a business audience.
 
-Use the supplied React dashboard concept as the design and content model, but adapt the sections to fit the topic and content. Do not force every section into every dashboard.
+Use a clean, professional card-based design as the content model, but adapt the sections to fit the topic and content. Do not force every section into every dashboard.
 
 ## Inputs
 - Required: the topic to explain.
@@ -43,12 +44,11 @@ Use the supplied React dashboard concept as the design and content model, but ad
    - Governance notes, risks, or implementation considerations.
    - Source notes listing the sources or assumptions used.
 5. Create the dashboard as standalone HTML/CSS/JavaScript rather than raw React unless the environment explicitly supports React build output.
-6. Preserve the spirit of the provided React component:
+6. Preserve a clean professional design spirit:
    - Clean card-based layout.
    - Interactive concept selection.
    - Search/filter for use cases where useful.
-   - Professional Business Sweden-style tone.
-   - Clear distinction between concepts, practical choices, benefits, limitations, and governance.
+   - Professional, clear tone with plain-language explanations, analogies, practical examples, and clear distinctions between concepts, benefits, limitations, and governance.
 7. Use this content schema when adapting the original code:
 
 ```js

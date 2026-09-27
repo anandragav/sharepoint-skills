@@ -25,12 +25,12 @@ Ask Copilot:
 
 ## Demo content
 
-Finished samples:
+Finished samples are in the `demo` folder:
 
-- [story-studio.html](./demo/sample-files/story-studio.html) — Story Studio reference with multiple story types
-- [Routewise-Fictional-Logistics-Customer-Story.html](./demo/sample-files/Routewise-Fictional-Logistics-Customer-Story.html) — labelled fictional customer story
+- `demo/sample-files/story-studio.html` — Story Studio reference with multiple story types
+- `demo/sample-files/Routewise-Fictional-Logistics-Customer-Story.html` — labelled fictional customer story
 
-Do not upload the `demo/` folder with the skill package.
+Do not upload the `demo` folder with the skill package.
 
 ## SharePoint Skill
 

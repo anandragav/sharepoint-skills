@@ -25,10 +25,10 @@ Ask Copilot:
 
 ## Demo content
 
-Finished samples are in [`demo/sample-files/`](./demo/sample-files/):
+Finished samples:
 
-- `story-studio.html` — Story Studio reference with multiple story types
-- `Routewise-Fictional-Logistics-Customer-Story.html` — labelled fictional customer story
+- [story-studio.html](./demo/sample-files/story-studio.html) — Story Studio reference with multiple story types
+- [Routewise-Fictional-Logistics-Customer-Story.html](./demo/sample-files/Routewise-Fictional-Logistics-Customer-Story.html) — labelled fictional customer story
 
 Do not upload the `demo/` folder with the skill package.
 

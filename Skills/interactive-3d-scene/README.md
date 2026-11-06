@@ -1,19 +1,27 @@
 # Interactive 3D Scene
 
-Builds a playful, clickable 3D scene as one self-contained HTML file for the SharePoint HTML viewer. The scene uses the Babylon.js library that the viewer injects, falls back to a matching 2D drawing when 3D is not available, and adds optional procedural sound, keyboard access, reduced motion support and a recording-ready demo mode. Works for seasonal greetings, team celebrations, product launches and event teasers.
+Builds a playful, clickable 3D scene as one self-contained HTML file for the SharePoint HTML viewer. Self-contained means the scene, its script, its styles and its drawn assets live in that file. Babylon.js is requested with the viewer's supported manifest, `<script type="application/json" class="ka-lib-manifest">["babylon"]</script>`. When `window.BABYLON` is available and WebGL works, the page is true 3D and the camera can orbit within the scene's limits. A flat SVG with the same click and tap reactions is the fallback when the library is missing or WebGL fails, and `?mode=2d` still forces that drawing. Reduced motion, keyboard access, optional procedural sound and a recording-ready demo mode stay as they are. Works for seasonal greetings, team celebrations, product launches and event teasers.
 
 ![preview](./assets/preview.png)
 
 ## What you get
 
-- A single `.html` file with no external files, CDNs, fonts, images or audio files
+- A single self-contained `.html` file for SharePoint. The scene, script, styles and drawn assets are in the file. There is no CDN, font, image or audio URL, and no embedded Babylon.js build. The file requests `babylon` through the host manifest
 - 3 to 6 tappable objects with reactions (glow, bounce, shake, spin, flash, sparks) and short status lines
 - The same reactions from buttons and number keys, announced in a live status line
-- A finished SVG drawing as the fallback when the host library or WebGL is missing
+- True 3D, including camera orbit within the scene's limits, when the supported library and WebGL are available
+- A finished SVG drawing as the fallback when the host library or WebGL is missing, and when `?mode=2d` is set
 - Sound that stays off until the viewer turns it on, synthesized with Web Audio
 - `prefers-reduced-motion` support and a layout that works from phone to desktop
 - A demo mode (`?demo=1`, optional `aspect=9x16`) that plays every reaction on a fixed timeline for screen recordings
 - A starter template and six reference guides, so the pattern can be reused for any theme
+
+## How the 3D library loads
+
+- The SharePoint file uses the supported `ka-lib-manifest` loader for `babylon`. A stripped-down, bundled or inlined Babylon runtime is not required for that file.
+- The page checks `window.BABYLON` and WebGL support. It does not pin a library version, and it does not assume when the host assigns `window.BABYLON`.
+- A pinned CDN script, or a bundled or inlined build, is an optional compatibility route for a separate copy that has no host manifest. The SharePoint file keeps the manifest and contains no CDN URL. A public CDN does not show that an arbitrary CDN is allowed in SharePoint. See [`interactive-3d-scene/references/public-hosting.md`](./interactive-3d-scene/references/public-hosting.md).
+- A user reported on 6 November 2026 that the original HTML scenes in this package opened in a live SharePoint HTML page through that loader, as true 3D, with camera pan and orbit. That is the user's report of those scenes. This repository has not recorded its own tenant test. The report does not name a library version, a loader schedule, a browser list, or a result for every tenant.
 
 ## When to use
 
@@ -42,6 +50,7 @@ Three finished scenes are in [`demo/sample-files/`](./demo/sample-files/): a win
 | Version | Date | Comments |
 | --- | --- | --- |
 | 1.0 | October 2026 | Initial Release |
+| 1.1 | November 2026 | Clarified the host manifest as the default Babylon.js loader, the SVG fallback, and a user-reported live SharePoint check of the original HTML scenes. |
 
 ## Disclaimer
 

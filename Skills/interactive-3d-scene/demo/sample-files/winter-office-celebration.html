@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Winter Office Celebration: an interactive scene</title>
-<!-- Ask the SharePoint HTML host for its 3D library. It injects it as window.BABYLON. Keep this before every other script. -->
+<!-- Ask the SharePoint HTML host for Babylon.js with the supported ka-lib-manifest. This file does not bundle or inline the library. Read window.BABYLON and check WebGL. Keep this before every other script. -->
 <script type="application/json" class="ka-lib-manifest">["babylon"]</script>
 <style>
 /* THEME: change these first. */
@@ -207,7 +207,7 @@ function start3D(){
  scene.fogMode=B.Scene.FOGMODE_EXP2;scene.fogDensity=.028;scene.fogColor=hex(SCENE.fog);
  scene.skipPointerMovePicking=true;
 
- /* camera: limited orbit, no panning, no keyboard camera input (keys belong to the page) */
+ /* camera: the host Babylon runtime can pan and orbit. This scene keeps a limited orbit, turns target panning off, and removes keyboard camera input so keys belong to the page. */
  var BASE_A=-Math.PI/2+.15,BASE_R=PORTRAIT?12:16,BASE_B=PORTRAIT?1.28:1.2;
  var cam=new B.ArcRotateCamera('cam',BASE_A,BASE_B,BASE_R,V(0,2.6,0),scene);
  cam.lowerRadiusLimit=10;cam.upperRadiusLimit=40;cam.lowerBetaLimit=.75;cam.upperBetaLimit=1.42;

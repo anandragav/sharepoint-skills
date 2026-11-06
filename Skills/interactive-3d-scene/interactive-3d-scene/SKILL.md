@@ -1,11 +1,11 @@
 ---
 name: interactive-3d-scene
-description: Build a self-contained, clickable 3D scene as one HTML file that runs in the SharePoint HTML viewer, using the host's built-in Babylon.js library, with a 2D drawing fallback, optional procedural sound, keyboard access, reduced motion and a recording-ready demo mode. Use when the user says make an interactive 3D scene, build a clickable seasonal page, create a festive scene for our intranet, make a holiday or celebration scene people can tap, make a 3D product launch page, or turn this theme into an interactive scene.
+description: Build a self-contained clickable 3D scene as one HTML file for the SharePoint HTML viewer. Self-contained means the scene, script, styles and drawn assets are in the file. Request Babylon.js with the host ka-lib-manifest and leave the runtime unbundled. When window.BABYLON is present and WebGL works, show true 3D with the template camera orbit. Otherwise, and when mode=2d is set, use the flat SVG click and tap fallback. Keep reduced motion, keyboard access, optional procedural sound and demo mode. Use when the user says make an interactive 3D scene, build a clickable seasonal page, create a festive scene for our intranet, make a holiday or celebration scene people can tap, make a 3D product launch page, or turn this theme into an interactive scene.
 ---
 # Interactive 3D Scene
 
 ## When to use
-Use this skill when someone wants a playful page that people explore and tap: a seasonal greeting, a team celebration, a product launch, an event teaser, a campaign moment, or a "thank you" page for a site. The output is one `.html` file that renders inside SharePoint's HTML viewer (`/_html`) with no external files.
+Use this skill when someone wants a playful page that people explore and tap: a seasonal greeting, a team celebration, a product launch, an event teaser, a campaign moment, or a "thank you" page for a site. The output is one self-contained `.html` file that renders inside SharePoint's HTML viewer (`/_html`). Self-contained means the scene, script, styles and drawn assets are in that file. Babylon.js is requested with the host manifest and is not embedded.
 
 Do not use it for data dashboards, reports or documents. Use `sharepoint-safe-html` for static, no-script pages.
 
@@ -16,7 +16,7 @@ Do not use it for data dashboards, reports or documents. Use `sharepoint-safe-ht
 
 ## Output
 - One UTF-8 `.html` file (with BOM), ideally under 150 KB, saved where the user asks, by default the site **Site Assets** or **Documents** library.
-- The page shows a 3D scene when the viewer injects the library, and the same scene as a flat SVG drawing when it does not.
+- The page shows true 3D when `window.BABYLON` is available and WebGL works, with the template's camera orbit. It shows the same scene as a flat SVG drawing when the library is missing, WebGL fails, or `mode=2d` is set.
 - Every reaction can be triggered by a tap in the scene, by a button, and by a number key.
 
 ## Steps
@@ -28,19 +28,23 @@ Do not use it for data dashboards, reports or documents. Use `sharepoint-safe-ht
    - the `SCENE` config block (colours, ambient particles, objects built from primitives, lines, demo timing);
    - the SVG fallback drawing, with one `<g class="svgobj" data-act="...">` per object using the same `act` ids.
    See [`references/clickable-scene-pattern.md`](references/clickable-scene-pattern.md) for the config fields, layout rules and how picking works.
-4. **Keep the host contract.** No `<script src>`, `<link>`, remote URLs, `fetch`, storage, workers, forms, `alert` or `confirm`. Keep the `ka-lib-manifest` line before any other script. Details in [`references/sharepoint-html-sandbox.md`](references/sharepoint-html-sandbox.md).
+4. **Keep the host contract.** No `<script src>`, `<link>`, remote URLs, `fetch`, storage, workers, forms, `alert` or `confirm`. Keep `<script type="application/json" class="ka-lib-manifest">["babylon"]</script>` before any other script. Check `window.BABYLON` and WebGL the way the template does. Do not pin a library version or assume when the host assigns `window.BABYLON`. Do not add a stripped-down, bundled or inlined Babylon runtime to the SharePoint file. Details in [`references/sharepoint-html-sandbox.md`](references/sharepoint-html-sandbox.md).
 5. **Sound stays off until the user turns it on.** Use the template's Web Audio recipes. Never ship audio files. See [`references/procedural-audio.md`](references/procedural-audio.md).
 6. **Keep the fallback and budget.** The SVG must look finished on its own, and the 3D scene must stay light: capped pixel ratio, no shadows, few lights, pooled particles, paused when hidden. See [`references/fallback-and-performance.md`](references/fallback-and-performance.md).
 7. **Check accessibility.** Buttons are real `<button>` elements at least 44 px high, every reaction is announced in the `role="status"` line, number keys and **M** work, and `prefers-reduced-motion` turns movement into a gentle glow.
 8. **Offer demo mode for recordings.** `?demo=1` (or `#demo=1`) plays every reaction on a fixed timeline with the page chrome hidden, `&aspect=9x16` gives a vertical frame. See [`references/demo-mode.md`](references/demo-mode.md).
 9. **Self-check before saving.** Run the checklist below. Save the file as UTF-8 with BOM.
-10. **Public copy only on request.** If the user wants the scene on a public website, make a separate copy that loads a pinned Babylon.js build from a CDN, as described in [`references/public-hosting.md`](references/public-hosting.md). Never put a CDN URL in the SharePoint file.
+10. **Public copy only on request.** If the user wants the scene on a public website, make a separate copy that loads a pinned Babylon.js build from a CDN, as described in [`references/public-hosting.md`](references/public-hosting.md). Never put a CDN URL in the SharePoint file. Bundling or inlining the library is an optional compatibility route for a copy that has no host manifest. It is not the default, and it does not show that an arbitrary CDN is allowed in SharePoint.
 
 ## Self-check
 - Search the file for `<script src`, `<link`, `http://`, `https://`, `@import`, `fetch(`, `XMLHttpRequest`, `WebSocket`, `localStorage`, `sessionStorage`, `<form`, `alert(`, `confirm(`. None may appear, except inside comments that you then remove.
 - Every `act` id appears in the `SCENE.objects` list and in exactly one SVG group.
 - Opening the file with `?mode=2d` shows the drawing, and every button still reacts.
 - Nothing from the template's sample theme, or from another theme you used as an example, is left in the text, colours or aria labels.
+- The SharePoint file still contains the `ka-lib-manifest` line for `babylon` and does not contain a bundled or inlined Babylon.js build.
+
+## Live SharePoint report
+A user reported on 6 November 2026 that the original HTML scenes in this package opened in a live SharePoint HTML page through the supported `ka-lib-manifest` loader, as true 3D, with camera pan and orbit. That is the user's report of those scenes. This repository has not recorded its own tenant test. The report does not name a library version, a loader schedule, a browser list, or a result for every tenant. In these files the camera remains the template's limited orbit, with target panning off.
 
 ## Guardrails
 - Do not add tracking, analytics, timers that call home, or anything that reads the user's identity.

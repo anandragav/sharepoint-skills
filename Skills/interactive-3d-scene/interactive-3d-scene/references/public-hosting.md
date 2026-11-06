@@ -1,6 +1,8 @@
 # Public hosting
 
-Sometimes the same scene should also run on a public website, a blog or a conference page. Outside SharePoint there is no host to inject Babylon.js, so the public page has to load it itself. Make that a **separate copy**. The SharePoint file must never contain a CDN URL, because the viewer blocks external scripts and the file would fail its own checks.
+The SharePoint file uses the host `ka-lib-manifest` for Babylon.js. A CDN script is for a separate public copy only. It is optional, and it is not proof that an arbitrary CDN is allowed in a SharePoint file. Bundling or inlining Babylon.js is another optional compatibility route for a page that has no host manifest. Do not put that bundle in the SharePoint file, and do not add a bundle implementation to this skill.
+
+Sometimes the same scene should also run on a public website, a blog or a conference page. Outside SharePoint there is no host manifest, so the public page has to load Babylon.js itself. Make that a **separate copy**. The SharePoint file must never contain a CDN URL, because the viewer blocks external scripts and the file would fail its own checks.
 
 ## Make the public copy
 1. Copy the finished SharePoint file to a new name, for example `scene-public.html`.
@@ -13,10 +15,10 @@ Sometimes the same scene should also run on a public website, a blog or a confer
         crossorigin="anonymous"></script>
 ```
 
-   - Pin an exact version (for example `8.x.y`), never `latest` or a range, so the page cannot change under you.
+   - Pin an exact version you have tested for that public copy, never `latest` or a range, so the page cannot change under you. Do not treat that pin as the build SharePoint supplies.
    - Generate the integrity hash from the exact file you tested, for example `curl -sL <url> | openssl dgst -sha384 -binary | openssl base64 -A`.
-   - Test the copy with the same version that your tenant's viewer injects, if you can find it in `/_html/llms.txt`, so both behave the same.
-3. Keep everything else identical: the inline script, the SVG fallback, sound off by default, and demo mode. If the CDN is blocked or slow, the page shows the drawing, exactly as in SharePoint.
+   - If `/_html/llms.txt` names the Babylon.js build the tenant viewer supplies, test the public copy against that build. If it does not, do not guess a version.
+3. Keep everything else identical: the page script, the SVG fallback, sound off by default, and demo mode. If the CDN is blocked or slow, the page shows the drawing, exactly as in SharePoint.
 4. Add a `<noscript>` line and a short page description in `<meta name="description">`.
 
 ## Serve it safely

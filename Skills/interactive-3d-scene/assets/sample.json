@@ -3,15 +3,15 @@
     "name": "pnp-sharepoint-skills-interactive-3d-scene",
     "source": "pnp",
     "title": "Interactive 3D Scene",
-    "shortDescription": "Builds a self-contained, clickable 3D scene for the SharePoint HTML viewer using the host's Babylon.js library, with a 2D fallback, optional sound and a demo mode.",
+    "shortDescription": "Builds a self-contained, clickable 3D scene as one HTML file for the SharePoint HTML viewer. The file holds the scene and its assets, requests Babylon.js with the host manifest, and uses a flat SVG fallback when 3D is unavailable.",
     "url": "https://github.com/pnp/sharepoint-skills/tree/main/Skills/interactive-3d-scene",
     "longDescription": [
       "Turns a theme or occasion, such as a team celebration, a seasonal greeting or a product launch, into a playful 3D scene with 3 to 6 tappable objects that glow, bounce, shake, spin, flash or burst into sparks.",
-      "Outputs a single HTML file that follows the SharePoint HTML viewer rules: no external files, the Babylon.js library requested through the host manifest, and a finished SVG drawing with the same reactions when 3D is not available.",
-      "Includes keyboard and button access, a live status line, reduced motion support, sound synthesized with Web Audio that stays off until the viewer turns it on, and a demo mode for 16:9 or 9:16 screen recordings. Ships with a starter template and reference guides so the pattern can be reused for any theme."
+      "Outputs a single self-contained HTML file that follows the SharePoint HTML viewer rules. Self-contained means the scene, script, styles and drawn assets are in the file. Babylon.js is requested through the host ka-lib-manifest. When window.BABYLON is available and WebGL works, the page is true 3D and the camera can orbit within the scene's limits. A finished SVG drawing with the same click and tap reactions is the fallback when the library or WebGL is unavailable, and when mode=2d is set.",
+      "Includes keyboard and button access, a live status line, reduced motion support, sound synthesized with Web Audio that stays off until the viewer turns it on, and a demo mode for 16:9 or 9:16 screen recordings. Ships with a starter template and reference guides so the pattern can be reused for any theme. A user reported on 6 November 2026 that the original HTML scenes opened as true 3D in a live SharePoint HTML page. That report is not a tenant test recorded by this package, and it does not name a library version, a loader schedule, a browser list, or a result for every tenant."
     ],
     "creationDateTime": "2026-10-31",
-    "updateDateTime": "2026-10-31",
+    "updateDateTime": "2026-11-06",
     "products": [
       "SharePoint",
       "Microsoft 365 Copilot"

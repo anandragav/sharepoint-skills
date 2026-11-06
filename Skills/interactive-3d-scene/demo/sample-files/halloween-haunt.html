@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
 <title>Halloween Haunt: a moonlit haunted yard</title>
+<!-- Ask the SharePoint HTML host for Babylon.js with the supported ka-lib-manifest. This file does not bundle or inline the library. Read window.BABYLON and check WebGL. Keep this before every other script. -->
 <script type="application/json" class="ka-lib-manifest">["babylon"]</script>
 <style>
 :root{--night:#050f0e;--panel:#0c1d1b;--line:#1f3d39;--text:#eefcf8;--muted:#b9d6d0;--candle:#ffd633;--focus:#ffd633}
@@ -512,7 +513,7 @@ function start3D(){
  scene.fogMode=B.Scene.FOGMODE_EXP2;scene.fogDensity=.026;scene.fogColor=C3(.08,.16,.15);
  scene.skipPointerMovePicking=true;
 
- /* camera */
+ /* camera: the host Babylon runtime can pan and orbit. This scene keeps a limited orbit, turns target panning off, and removes keyboard camera input so keys belong to the page. */
  var BASE_A=-Math.PI/2+0.18;
  var cam=new B.ArcRotateCamera('cam',BASE_A,1.2,25,V(0,2.8,1),scene);
  cam.lowerRadiusLimit=13;cam.upperRadiusLimit=36;cam.lowerBetaLimit=.72;cam.upperBetaLimit=1.42;

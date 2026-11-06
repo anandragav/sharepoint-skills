@@ -44,7 +44,7 @@ Three finished scenes are in [`demo/sample-files/`](./demo/sample-files/): a win
 
 | Solution | Author(s) |
 | --- | --- |
-| interactive-3d-scene | Anand Vijayaraghavan &#124; [GitHub](https://github.com/anandragav) &#124; [LinkedIn](https://www.linkedin.com/in/anand-vijayaragavan-89443012/) |
+| interactive-3d-scene | Anand Vijayaragavan &#124; [GitHub](https://github.com/anandragav) &#124; [LinkedIn](https://www.linkedin.com/in/anand-vijayaragavan-89443012/) |
 
 ## Version history
 

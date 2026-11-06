@@ -14,6 +14,18 @@ On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon
 
 The starter and sample files keep a limited orbit with target panning disabled; that is a scene choice, not a SharePoint restriction.
 
+## SharePoint test
+
+I tested the skill in SharePoint on 6 November 2026. The screenshots show a winter scene and Halloween Haunt rendering in 3D.
+
+![A winter scene titled “A little winter wonderland” in the SharePoint HTML viewer, rendering in 3D with the moving-scene line and the sound control visible](./screenshots/sharepoint-winter-scene-2026-11-06.png)
+
+A winter scene in the SharePoint HTML viewer. The page title is “A little winter wonderland.” This is skill output from that test. It is not identified as `sample-files/winter-office-celebration.html`.
+
+![Halloween Haunt in the SharePoint HTML viewer, rendering in 3D with the moving-scene line and the sound control visible](./screenshots/sharepoint-halloween-haunt-2026-11-06.png)
+
+Halloween Haunt in the SharePoint HTML viewer, rendering in 3D.
+
 ## Setup
 
 1. Upload one HTML file to a document library such as **Site Assets** and open it in SharePoint to see the 3D version when the host library and WebGL are available, or open it in a browser to see the fallback.

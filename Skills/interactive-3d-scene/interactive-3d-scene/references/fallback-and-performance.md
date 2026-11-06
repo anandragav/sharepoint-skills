@@ -1,15 +1,15 @@
 # Fallback and performance
 
-The 3D scene is an enhancement. The SVG drawing is the page, and it must stand on its own.
+When the supported Babylon.js library is available and WebGL works, the page is true 3D. Objects sit in space, and the camera can orbit within the limits in [clickable-scene-pattern.md](clickable-scene-pattern.md). The flat SVG is the fallback for a missing library, a WebGL failure, or a deliberate `mode=2d`. It must look finished on its own. Reduced motion and the other accessibility behaviour apply in both views.
 
 ## When the fallback shows
-The SVG is visible by default. The script switches to 3D only when all of these are true:
-1. `mode=2d` is not in the URL.
-2. `window.BABYLON` exists and has `Engine` and `MeshBuilder`, meaning the host injected the library.
+The SVG is visible until 3D starts, so a failed startup never leaves a blank stage. The script switches to 3D only when all of these are true:
+1. `mode=2d` is not in the URL. `mode=2d` remains a deliberate forced fallback, including when the library loaded.
+2. `window.BABYLON` exists and has `Engine` and `MeshBuilder`.
 3. `BABYLON.Engine.isSupported()` reports WebGL.
 4. Creating the engine and scene does not throw.
 
-Only then does it add `is-3d` to the stage, which hides the SVG and shows the canvas. If anything throws, it removes the class and keeps the drawing. Scripts turned off entirely also leave the drawing, plus a `<noscript>` note.
+Only then does it add `is-3d` to the stage, which hides the SVG and shows the canvas. If anything throws, it removes the class and keeps the drawing. Scripts turned off entirely also leave the drawing, plus a `<noscript>` note. The SVG is click and tap only. It is the flat fallback, not a 3D runtime.
 
 The mode line tells people which one they see: "Moving scene..." or "Still view...".
 
@@ -56,7 +56,7 @@ Run each one with the browser console open. Zero errors, zero CSP violations, ze
 
 | Test | How | Pass when |
 | --- | --- | --- |
-| 3D | Library injected | Mode line says moving scene, every object reacts to a tap and a button |
+| 3D | `window.BABYLON` present and WebGL supported | Mode line says moving scene, the camera can orbit within its limits, every object reacts to a tap and a button |
 | Fallback | No library | Drawing visible, every SVG group and button reacts |
 | Forced fallback | `?mode=2d` with library | Same as fallback |
 | Sandbox | Page in `<iframe sandbox="allow-scripts">` | 3D still starts, buttons work |

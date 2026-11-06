@@ -3,17 +3,27 @@
 SharePoint renders `.html` files from OneDrive and document libraries in its HTML viewer (`https://<tenant>.sharepoint.com/_html`). The page runs in a sandboxed frame under a strict Content Security Policy. Anything that breaks the rules fails silently: the page loads but the feature does nothing. Your tenant publishes the current rules at `/_html/llms.txt` and `/_html/help.json`. Check them when something behaves differently from this page.
 
 ## Asking for the 3D library
-The viewer has a short list of first-party libraries it can inject. Declare the ones you need by name, before any other script:
+The SharePoint HTML viewer can supply a short list of libraries. For this skill, ask for Babylon.js by name, before any other script:
 
 ```html
 <script type="application/json" class="ka-lib-manifest">["babylon"]</script>
 ```
 
-- The host fetches its own copy, verifies its integrity, and injects it inline. `window.BABYLON` is then available to your scripts.
-- Do not add a version or URL. The host chooses the version and ignores anything else.
+- This manifest is the default loader for the SharePoint file. A stripped-down, bundled or inlined Babylon.js runtime is not required in that file.
+- Self-contained means the HTML file holds the scene, the script, the styles and the drawn assets. Babylon.js stays outside the file on this path.
+- Do not add a version or a URL. The SharePoint file does not choose the build.
+- When the page's own script starts 3D, use `window.BABYLON` only if it exists and has `Engine` and `MeshBuilder`. Check WebGL with `BABYLON.Engine.isSupported()` when that function exists. Do not assume a library version, and do not assume when the host assigns `window.BABYLON`.
 - Other names on the list include `chart.js`, `mermaid`, `react` and `fluentui`. This skill only needs `babylon`.
 - The host limits how many libraries a page can request and how large they can be. Ask for one library only.
-- Treat the library as optional. If it is missing, too old, or WebGL is unavailable, the page must still work with the SVG fallback. See [fallback-and-performance.md](fallback-and-performance.md).
+- Treat the library as optional. If it is missing, if those constructors are missing, or if WebGL is unavailable, the page must still work with the SVG fallback. `mode=2d` forces that drawing even when the library is present. See [fallback-and-performance.md](fallback-and-performance.md).
+- On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon.js loaded through ka-lib-manifest. They rendered in true 3D, with camera pan and orbit, without bundling the library into the HTML file.
+- The starter and sample files keep a limited orbit with target panning disabled; that is a scene choice, not a SharePoint restriction.
+
+## Optional copies
+A page with no host manifest can use an optional compatibility route. Neither route belongs in the SharePoint file, and this skill does not ship a bundle.
+
+- A separate public page may load one pinned Babylon.js build from a CDN. See [public-hosting.md](public-hosting.md). That CDN stays on the public copy. It is not a SharePoint file URL, and it is not proof that an arbitrary CDN is allowed in the viewer.
+- A local test copy may include a Babylon.js build so `window.BABYLON` exists during preview. Keep that build out of the file you deliver.
 
 ## The policy, in practice
 The viewer's policy is close to this:
@@ -47,7 +57,7 @@ The page runs without same-origin rights. That means:
 
 ## File rules
 - One file, saved as UTF-8 **with a BOM**, so curly quotes and other non-ASCII characters render correctly.
-- Aim for under 150 KB. The 3D library does not count, because the host injects it.
+- Aim for under 150 KB. On the supported path the Babylon.js runtime is not part of the file, so it is not part of that budget.
 - `<html lang="...">`, `<meta charset="utf-8">` and a viewport meta tag.
 - No email addresses, no tracking, no hidden text.
 
@@ -62,9 +72,9 @@ localStorage   sessionStorage   indexedDB   document.cookie
 ```
 
 ## Testing outside SharePoint
-To preview locally the way the viewer runs it:
+The supported check is the unmodified file in the SharePoint HTML viewer. To preview locally in a similar sandbox:
 1. Serve the file with the policy above as a `Content-Security-Policy` header.
-2. Insert the Babylon.js build inline, in a `<script>` right after the manifest line. This mimics what the host injects. Do this only in the test copy, never in the file you deliver.
+2. For that local preview only, you may insert a Babylon.js build in a `<script>` right after the manifest line so `window.BABYLON` exists. Do this only in the test copy, never in the file you deliver. That local script is a preview aid. It is not the SharePoint loader.
 3. Load the page inside `<iframe sandbox="allow-scripts">` to reproduce the missing same-origin rights.
-4. Load it once more without the library to see the fallback.
+4. Load it once more without the library, and once with `?mode=2d`, to see the fallback.
 5. Watch the console. A single CSP violation or uncaught error is a failure.

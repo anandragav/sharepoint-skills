@@ -67,7 +67,11 @@ Each reaction is a short tween driven by the render loop, with no timers per fra
 Every run calls `say()`, which updates the `role="status"` line and the on-stage caption, then plays the object's sound if sound is on.
 
 ## Camera
-- `ArcRotateCamera` with limits on radius, alpha (about ±1 rad) and beta (never under the ground). Panning is off.
+The supported Babylon.js runtime can orbit and pan. On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon.js loaded through ka-lib-manifest. They rendered in true 3D, with camera pan and orbit, without bundling the library into the HTML file.
+
+The starter and sample files keep a limited orbit with target panning disabled; that is a scene choice, not a SharePoint restriction.
+
+- `ArcRotateCamera` with limits on radius, alpha (about ±1 rad) and beta (never under the ground). Dragging orbits inside those limits. Target panning is off (`panningSensibility = 0`), so a drag does not slide the camera target.
 - The camera's keyboard input is removed so arrow keys and numbers belong to the page.
 - Landscape uses a vertical field of view, portrait switches to a horizontal one so wide scenes still fit on a phone.
 - After 5 seconds without input the camera drifts gently. It stops under reduced motion and in demo mode.

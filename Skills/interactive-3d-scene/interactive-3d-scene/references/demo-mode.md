@@ -10,7 +10,7 @@ Flags work in the query string or the hash, which matters because some hosts dro
 | `demo=1` | Hide page chrome and cursor, frame the stage, play every reaction on a timeline |
 | `aspect=9x16` | Vertical 9:16 frame instead of 16:9 |
 | `sound=0` | Silent demo. Without it, demo mode tries to start sound (see below) |
-| `mode=2d` | Force the SVG fallback, also outside demo mode |
+| `mode=2d` | Force the flat SVG fallback, also outside demo mode. This is deliberate. The default when the library and WebGL are available remains true 3D |
 | `seed=N` | Change the random seed for particles and sound grains. Default 7 |
 
 Examples:

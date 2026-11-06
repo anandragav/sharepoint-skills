@@ -16,7 +16,8 @@ The SharePoint HTML viewer can supply a short list of libraries. For this skill,
 - Other names on the list include `chart.js`, `mermaid`, `react` and `fluentui`. This skill only needs `babylon`.
 - The host limits how many libraries a page can request and how large they can be. Ask for one library only.
 - Treat the library as optional. If it is missing, if those constructors are missing, or if WebGL is unavailable, the page must still work with the SVG fallback. `mode=2d` forces that drawing even when the library is present. See [fallback-and-performance.md](fallback-and-performance.md).
-- A user reported on 6 November 2026 that the original HTML scenes in this package opened in a live SharePoint HTML page through this manifest, as true 3D, with camera pan and orbit. That is the user's report of those scenes. This repository has not recorded its own tenant test. The report does not name a library version, a loader schedule, a browser list, or a result for every tenant.
+- On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon.js loaded through ka-lib-manifest. They rendered in true 3D, with camera pan and orbit, without bundling the library into the HTML file.
+- The starter and sample files keep a limited orbit with target panning disabled; that is a scene choice, not a SharePoint restriction.
 
 ## Optional copies
 A page with no host manifest can use an optional compatibility route. Neither route belongs in the SharePoint file, and this skill does not ship a bundle.

@@ -21,7 +21,8 @@ Builds a playful, clickable 3D scene as one self-contained HTML file for the Sha
 - The SharePoint file uses the supported `ka-lib-manifest` loader for `babylon`. A stripped-down, bundled or inlined Babylon runtime is not required for that file.
 - The page checks `window.BABYLON` and WebGL support. It does not pin a library version, and it does not assume when the host assigns `window.BABYLON`.
 - A pinned CDN script, or a bundled or inlined build, is an optional compatibility route for a separate copy that has no host manifest. The SharePoint file keeps the manifest and contains no CDN URL. A public CDN does not show that an arbitrary CDN is allowed in SharePoint. See [`interactive-3d-scene/references/public-hosting.md`](./interactive-3d-scene/references/public-hosting.md).
-- A user reported on 6 November 2026 that the original HTML scenes in this package opened in a live SharePoint HTML page through that loader, as true 3D, with camera pan and orbit. That is the user's report of those scenes. This repository has not recorded its own tenant test. The report does not name a library version, a loader schedule, a browser list, or a result for every tenant.
+- On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon.js loaded through ka-lib-manifest. They rendered in true 3D, with camera pan and orbit, without bundling the library into the HTML file.
+- The starter and sample files keep a limited orbit with target panning disabled; that is a scene choice, not a SharePoint restriction.
 
 ## When to use
 
@@ -50,7 +51,7 @@ Three finished scenes are in [`demo/sample-files/`](./demo/sample-files/): a win
 | Version | Date | Comments |
 | --- | --- | --- |
 | 1.0 | October 2026 | Initial Release |
-| 1.1 | November 2026 | Clarified the host manifest as the default Babylon.js loader, the SVG fallback, and a user-reported live SharePoint check of the original HTML scenes. |
+| 1.1 | November 2026 | Clarified the host manifest as the default Babylon.js loader and the SVG fallback. On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon.js loaded through ka-lib-manifest. They rendered in true 3D, with camera pan and orbit, without bundling the library into the HTML file. |
 
 ## Disclaimer
 

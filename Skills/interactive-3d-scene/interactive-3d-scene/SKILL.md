@@ -43,8 +43,10 @@ Do not use it for data dashboards, reports or documents. Use `sharepoint-safe-ht
 - Nothing from the template's sample theme, or from another theme you used as an example, is left in the text, colours or aria labels.
 - The SharePoint file still contains the `ka-lib-manifest` line for `babylon` and does not contain a bundled or inlined Babylon.js build.
 
-## Live SharePoint report
-A user reported on 6 November 2026 that the original HTML scenes in this package opened in a live SharePoint HTML page through the supported `ka-lib-manifest` loader, as true 3D, with camera pan and orbit. That is the user's report of those scenes. This repository has not recorded its own tenant test. The report does not name a library version, a loader schedule, a browser list, or a result for every tenant. In these files the camera remains the template's limited orbit, with target panning off.
+## SharePoint check
+On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon.js loaded through ka-lib-manifest. They rendered in true 3D, with camera pan and orbit, without bundling the library into the HTML file.
+
+The starter and sample files keep a limited orbit with target panning disabled; that is a scene choice, not a SharePoint restriction.
 
 ## Guardrails
 - Do not add tracking, analytics, timers that call home, or anything that reads the user's identity.

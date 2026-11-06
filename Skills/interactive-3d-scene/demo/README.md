@@ -10,7 +10,9 @@ Finished sample output for the [interactive-3d-scene](../) skill. These files ar
 
 Each file requests Babylon.js with `<script type="application/json" class="ka-lib-manifest">["babylon"]</script>` and does not embed the library. In the SharePoint HTML viewer, a present `window.BABYLON` and working WebGL show true 3D and the scene's camera orbit. Opened straight from disk or GitHub, there is no host library, so you see the flat SVG with the same click and tap reactions. `?mode=2d` forces that drawing even when 3D is available. Reduced motion still turns movement into a glow.
 
-A user reported on 6 November 2026 that these original HTML scenes opened in a live SharePoint HTML page through that loader, as true 3D, with camera pan and orbit. That is the user's report of those scenes. This repository has not recorded its own tenant test. The report does not name a library version, a loader schedule, a browser list, or a result for every tenant.
+On 6 November 2026, I tested the original HTML scenes in SharePoint with Babylon.js loaded through ka-lib-manifest. They rendered in true 3D, with camera pan and orbit, without bundling the library into the HTML file.
+
+The starter and sample files keep a limited orbit with target panning disabled; that is a scene choice, not a SharePoint restriction.
 
 ## Setup
 

@@ -11,8 +11,11 @@ The viewer has a short list of first-party libraries it can inject. Declare the 
 
 - The host fetches its own copy, verifies its integrity, and injects it inline. `window.BABYLON` is then available to your scripts.
 - Do not add a version or URL. The host chooses the version and ignores anything else.
+- The version is the host's, not yours. Community tests in November 2026 measured Babylon.js 8.56.2, one major release behind the current one, and Microsoft can change it at any time. Read `BABYLON.Engine.Version` at runtime if you need to know.
+- Use core APIs only: `MeshBuilder`, `StandardMaterial`, lights, `GlowLayer`, `ParticleSystem` and animations. Do not rely on model loaders, the GUI package or anything that needs an extra Babylon.js package, because the host does not ship them.
 - Other names on the list include `chart.js`, `mermaid`, `react` and `fluentui`. This skill only needs `babylon`.
 - The host limits how many libraries a page can request and how large they can be. Ask for one library only.
+- Let errors show while you test. Do not wrap calls in an empty `catch(e){}`, because a broken scene then just goes blank with nothing in the console. The template logs a `[3D scene]` warning instead, including why it fell back to 2D.
 - Treat the library as optional. If it is missing, too old, or WebGL is unavailable, the page must still work with the SVG fallback. See [fallback-and-performance.md](fallback-and-performance.md).
 
 ## The policy, in practice
